@@ -20,6 +20,6 @@ if __name__ == "__main__":
     # Assuming `generate_dungeon()` is your function that fills the array
     # dungeon = generate_dungeon()
 
-    export_dungeon_to_json(dungeon, filename="dungeon.json")
+    export_dungeon_to_json(dungeon, filename="/Dungeon/dungeon.json")
 
     print("Dungeon exported successfully to dungeon.json")
