@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import random
 import scipy.ndimage
 from dungeon_config import *  # Import all configuration variables
+from export_dungeon import export_dungeon_to_json
 
 # Room class
 class Room:
@@ -139,3 +140,5 @@ for dungeon_index in range(num_dungeons):
     plt.axis("off")
     plt.title(f"Procedural Dungeon {dungeon_index + 1}")
     plt.show()
+
+    export_dungeon_to_json(dungeon, filename="dungeon1.json")

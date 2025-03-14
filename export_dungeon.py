@@ -1,25 +1,23 @@
-import numpy as np
+import os
 import json
-from dungeon_config import *  # Importing parameters
+import numpy as np
+from dungeon_config import *
 
-def export_dungeon_to_json(dungeon, filename="dungeon.json"):
-    """Exports the dungeon as a JSON file in a 2D array format."""
+def export_dungeon_to_json(dungeon, filename="dungeon1.json"):
+    """Exports the dungeon as a JSON file inside the 'Dungeon/dungeons' folder."""
+    
+    # Corrected relative path to the GameMaker directory
+    output_dir = os.path.join(os.getcwd(), "Dungeon", "dungeons")  # Relative path
+
+    os.makedirs(output_dir, exist_ok=True)  # Ensure the directory exists
+
+    filepath = os.path.join(output_dir, filename)
+
     dungeon_dict = {
-        "dungeon": dungeon.tolist()  # Convert NumPy array to a standard Python list
+        "dungeon": dungeon.tolist()
     }
 
-    with open(filename, "w") as f:
+    with open(filepath, "w") as f:
         json.dump(dungeon_dict, f, indent=4)
 
-# Example usage: Generate a dungeon and export it
-if __name__ == "__main__":
-    # Generate a blank dungeon (walls everywhere)
-    dungeon = np.ones((height, width), dtype=int)
-
-    # Generate rooms and corridors (reuse your existing dungeon generation logic)
-    # Assuming `generate_dungeon()` is your function that fills the array
-    # dungeon = generate_dungeon()
-
-    export_dungeon_to_json(dungeon, filename="/Dungeon/dungeon.json")
-
-    print("Dungeon exported successfully to dungeon.json")
+    print(f"Dungeon exported successfully to {filepath}")
