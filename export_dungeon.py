@@ -1,23 +1,17 @@
 import os
 import json
 import numpy as np
-from dungeon_config import *
 
-def export_dungeon_to_json(dungeon, filename="dungeon1.json"):
-    """Exports the dungeon as a JSON file inside the 'Dungeon/dungeons' folder."""
-    
-    # Corrected relative path to the GameMaker directory
-    output_dir = os.path.join(os.getcwd(), "Dungeon", "dungeons")  # Relative path
+SAVE_DIR = "/Users/patrickkang/Library/Application Support/Dungeon/"
+JSON_FILE = os.path.join(SAVE_DIR, "dungeon1.json")
 
-    os.makedirs(output_dir, exist_ok=True)  # Ensure the directory exists
+os.makedirs(SAVE_DIR, exist_ok=True)
 
-    filepath = os.path.join(output_dir, filename)
+def export_dungeon_to_json(dungeon):
+    with open(JSON_FILE, "w", encoding="utf-8") as f:
+        json.dump({"dungeon": dungeon.tolist()}, f, indent=4)
+    print(f"Dungeon saved to {JSON_FILE}")
 
-    dungeon_dict = {
-        "dungeon": dungeon.tolist()
-    }
-
-    with open(filepath, "w") as f:
-        json.dump(dungeon_dict, f, indent=4)
-
-    print(f"Dungeon exported successfully to {filepath}")
+if __name__ == "__main__":
+    dungeon = np.ones((5, 5), dtype=int)  # Example dungeon
+    export_dungeon_to_json(dungeon)

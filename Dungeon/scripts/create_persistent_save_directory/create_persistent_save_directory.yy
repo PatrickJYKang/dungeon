@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"create_persistent_save_directory",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"create_persistent_save_directory",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

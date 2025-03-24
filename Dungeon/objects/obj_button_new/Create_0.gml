@@ -3,12 +3,26 @@ event_inherited();
 
 activate_button = function() 
 {
-	// Call Python to generate the dungeon and return JSON
-	var dungeon = generate_dungeon(); 
+	// Step 1: Create the save directory symlink
+	create_persistent_save_directory();
+	
+	global.tileset_floor_index = asset_get_index("tileset_floor");
+	global.tileset_walls_index = asset_get_index("tileset_walls");
+	global.floor_tile_index = 0;
+	global.wall_tile_index = 0;
 
-	// Parse the JSON and load it into an array
-	parse_dungeon(dungeon);
+	// Step 2: Generate dungeon and get the file path
+	var dungeon_file = generate_dungeon();
 
-	// Create a new room using the parsed dungeon array
-	create_room(dungeon);
+	if (dungeon_file != undefined) {
+	    // Step 3: Read the dungeon
+	    var dungeon_array = parse_dungeon(dungeon_file);
+		
+		show_debug_message("Dungeon array: " + string(dungeon_array));
+
+	    if (dungeon_array != undefined) {
+	        // Step 4: Create the room
+	        create_dungeon_room(dungeon_array);
+	    }
+	}
 }
