@@ -3,8 +3,6 @@ event_inherited();
 
 activate_button = function() 
 {
-	// Step 1: Create the save directory symlink
-	create_persistent_save_directory();
 	
 	global.tileset_floor_index = asset_get_index("tileset_floor");
 	global.tileset_walls_index = asset_get_index("tileset_walls");
@@ -18,7 +16,7 @@ activate_button = function()
 	    // Step 3: Read the dungeon
 	    var dungeon_array = parse_dungeon(dungeon_file);
 		
-		show_debug_message("Dungeon array: " + string(dungeon_array));
+		//show_debug_message("Dungeon array: " + string(dungeon_array));
 
 	    if (dungeon_array != undefined) {
 	        // Step 4: Create the room

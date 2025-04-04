@@ -134,14 +134,14 @@ for dungeon_index in range(num_dungeons):
     # Remove small disconnected floor regions
     remove_small_disconnected_areas(dungeon, min_disconnected_area_size)
 
-    '''
+    
     # Display dungeon
     plt.figure(figsize=(20, 20))
     plt.imshow(dungeon, cmap="gray_r")
     plt.axis("off")
     plt.title(f"Procedural Dungeon {dungeon_index + 1}")
     plt.show()
-    '''
+    
     
     # Export dungeon using the correct function
     export_dungeon_to_json(dungeon)

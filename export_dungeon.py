@@ -2,7 +2,7 @@ import os
 import json
 import numpy as np
 
-SAVE_DIR = "/Users/patrickkang/Library/Application Support/Dungeon/"
+SAVE_DIR = "/Users/" + os.getlogin() + "/Library/Application Support/Dungeon/"
 JSON_FILE = os.path.join(SAVE_DIR, "dungeon1.json")
 
 os.makedirs(SAVE_DIR, exist_ok=True)
