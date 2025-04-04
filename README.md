@@ -47,6 +47,8 @@ The generator will create a dungeon and display it visually using matplotlib. Th
 
 To run the game, you may open `Dungeon/Dungeon.yyp` in GameMaker Studio and press run. Note that it is large unimplemented.
 
+You may have to install the [xProcess extension](https://samuel-venable.itch.io/gamemaker-extension-collection).
+
 ## Further Development
 
 While the dungeon generation is currently functional, the game is currently largely unimplemented. Future development will focus on implementing the game in GameMaker Studio 2 and smoothing out the connection between the game and any external files and scripts.
